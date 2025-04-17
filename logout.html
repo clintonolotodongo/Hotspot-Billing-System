@@ -1,0 +1,61 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>WifiPay</title>
+	<link rel="icon" type="image/png" href="logo.png">
+	<link rel="stylesheet" type="text/css" href="style.css" />
+<script>
+    function openLogin() {
+	if (window.name != 'hotspot_logout') return true;
+	open('$(link-login)', '_blank', '');
+	window.close();
+	return false;
+    }
+</script>
+</head>
+
+<body>
+    <div class="login">
+        <div class="login-title">
+			<img src="logo.png" alt="">
+			<h3>Wifi Hotspot</h3>
+		</div>
+        <div class="label2">You have just logged out!</div> 
+        <div class="list">  
+            <li class="body">
+                <div class="name">Username</div>
+                <div class="name">$(username)</div>
+            </li>
+            <li class="body">
+                <div class="name">IP address</div>
+                <div class="name">$(ip)</div>
+            </li>
+            <li class="body">
+                <div class="name">MAC address</div>
+                <div class="name">$(mac)</div>
+            </li>
+            <li class="body">
+                <div class="name">Session time</div>
+                <div class="name">$(uptime)</div>
+            </li>
+            $(if session-time-left)
+            <li class="body">
+                <div class="name">Time left</div>
+                <div class="name">$(session-time-left)</div>
+            </li>
+            $(endif)
+            <li class="body">
+                <div class="name">Bytes up / down:</div>
+                <div class="name">$(bytes-in-nice) / $(bytes-out-nice)</div>
+            </li>
+        </div>
+
+
+        <form action="$(link-login)" name="login" class="login-form" onSubmit="return openLogin()">
+        <input type="submit" value="Log in">
+        </form>
+        <div class="label2">Powered By WifiPay</div>
+    </div>
+</body>
+</html>

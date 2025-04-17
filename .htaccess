@@ -1,0 +1,19 @@
+RewriteEngine on
+
+# Remove .php extension from URLs
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^/]+)/?$ $1.php [L]
+
+# Remove .html extension from URLs
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([^/]+)/?$ $1.html [L]
+
+# Optionally, you can also handle index.php like so:
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^/]+)\.php\s[HTTP/1.1|1.0]$
+RewriteRule ^([^/]+)\.php$ /$1 [R=301,L]
+
+# Rewrite to handle index page without .php
+RewriteCond %{REQUEST_URI} ^/$
+RewriteRule ^$ /index.php [L]

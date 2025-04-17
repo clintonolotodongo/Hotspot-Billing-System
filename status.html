@@ -1,0 +1,70 @@
+<html>
+<head>
+$(if refresh-timeout)
+<meta http-equiv="refresh" content="$(refresh-timeout-secs)">
+$(endif)
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>WifiPay</title>
+	<link rel="icon" type="image/png" href="logo.png">
+	<link rel="stylesheet" type="text/css" href="style.css" />
+
+<script>
+function openLogout() {
+	if (window.name != 'hotspot_status') return true;
+        open('$(link-logout)', 'hotspot_logout', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=280,height=250');
+	window.close();
+	return false;
+    }
+</script>
+    
+</head>
+<body $(if advert-pending == 'yes') onLoad="openAdvert()" $(endif)>
+    <div class="login">
+        <div class="login-title">
+			<img src="logo.png" alt="">
+			<h3>Wifi Hotspot</h3>
+		</div>
+        $(if login-by == 'trial')
+            <div class="label2">Hi, trial user!</div>
+        $(elif login-by != 'mac')
+            <div class="label2">Hi, $(username)!</div>
+        $(endif) 
+
+        <form action="$(link-logout)" name="logout" class="login-form" onSubmit="return openLogout()">
+            <div class="list">
+                <li class="body">
+                    <div class="name">IP address</div>
+                    <div class="name">$(ip)</div>
+                </li>
+                <li class="body">
+                    <div class="name">Bytes up / down</div>
+                    <div class="name">$(bytes-in-nice) / $(bytes-out-nice)</div>
+                </li>
+
+                $(if session-time-left)
+                <li class="body">
+                    <div class="name">Connected / left</div>
+                    <div class="name">$(uptime) / $(session-time-left)</div>
+                </li>
+                $(else)
+                <li class="body">
+                    <div class="name">Connected</div>
+                    <div class="name">$(uptime)</div>
+                </li>
+                $(endif)
+
+                $(if login-by-mac != 'yes')
+                    <!-- user manager link. if user manager resides on other router, replace $(hostname) by its address
+                    <button onclick="document.location='http://$(hostname)/user?subs='; return false;">status</button>
+                    <!-- end of user manager link -->
+                    <input type="submit" value="Log out">
+                $(endif)
+            </div>
+        </form>
+
+		<div class="label2">Powered By WifiPay</div>
+    </div>
+</body>
+</html>

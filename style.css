@@ -1,0 +1,201 @@
+* a{
+	color: inherit;
+	text-decoration: none;
+}
+
+html{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	
+	margin: 0;
+	padding: 0;	
+	font-family: "Roboto-Regular", Arial, sans-serif;	
+	color: #263838;
+	background-color: #ffffff;
+	width: 100%;
+	height: 100%;
+}
+
+
+.box{
+	width: 100%;
+	padding: 4px;
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #263838;
+	background-color: #fafafa;
+}
+
+.box i{
+	font-size: 18px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.box input[type=text],
+.box input[type=email],
+.box input[type=number],
+.box input[type=password]{
+	flex: 1;
+	padding: 8px;
+	border: none;
+	outline: none;
+	background-color: transparent;
+}
+
+
+.login{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 400px;
+	max-height: 85%;
+	border-radius: 10px;
+	box-shadow: 0 0 10px -5px;
+	padding: 20px;
+	overflow-y: auto;
+	text-align: center;
+}
+
+.login input[type=submit]{
+	width: 100%;
+	padding: 10px;
+	color: #fff;
+	border: 1px solid #263838;
+	border-radius: 6px;
+	background-color: #263838;
+	
+}
+
+.login input[type=submit]:hover{
+	background-color: transparent;
+	color: #263838;
+}
+
+.login-title{
+	display: inline-block;
+	font-size: 20px;
+	font-weight: 700;
+	text-align: center;
+	font-family: "PlaywriteVN-VariableFont_wght";
+	text-align: center;
+}
+
+.login-title img{
+	width: 80px;
+	display: inline-block;
+}
+
+.login-title h3{
+	display: inline-block;
+	width: 100%;
+	margin: 0 0 0 0;
+	font-size: 22px;
+	font-family: Roboto, 'Helvetica Neue', 'Open Sans', 'Segoe UI',  sans-serif;
+}
+
+
+.label{
+	font-size: 13px;
+	color: #a1a1a1;
+	text-align: left;
+	margin-bottom: 5px;
+	text-align: left;
+}
+
+.label2{
+	font-size: 13px;
+	color: #a1a1a1;
+	text-align: center;
+	margin: 0;
+	margin-top: 20px;
+	margin-bottom: 5px;
+}
+
+.login-form{
+	padding: 20px 20px 20px 20px;
+}
+
+.btn{
+	display: inline-block;
+	border: 1px solid #ff6000;
+	background-color: #ff6000;
+	color: #fff;
+	padding: 8px;
+	font-size: 18px;
+	border-radius: 6px;
+	min-width: 90%;
+	margin: 10px
+}
+
+.purchase-area{
+	display: block;
+	padding: 20px 20px 20px 20px;
+}
+
+.purchase-area h3{
+	margin: 0;
+	font-size: 16px;
+	color: #a1a1a1;
+	text-align: center;
+}
+
+.logo-area{
+	text-align: center;
+}
+
+.logo-area img{
+	display: inline-block;
+	width: 40px;
+	margin-left: 10px;
+	margin-right: 10px;
+	border-radius: 10px
+}
+
+.list{
+    display: block;
+	padding: 10px 20px 20px 20px;
+}
+
+.list li{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    list-style: none;
+    padding: 6px;
+	font-size: 13px;
+	border-radius: 4px;
+	text-align: left;
+}
+
+.body{
+	color: #263838;
+	background-color:#cad1d1;
+}
+
+.name{
+    flex: 1;
+}
+
+
+@media only screen and (max-width: 900px) {
+	.login{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 90%;
+		max-height: 85%;
+		border-radius: 10px;
+		box-shadow: 0 0 10px -5px;
+		padding: 10px;
+		overflow-y: auto;
+	}
+}

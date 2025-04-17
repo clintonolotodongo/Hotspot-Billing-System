@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>WifiPay</title>
+	<link rel="icon" type="image/png" href="logo.png">
+	<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+	$(if chap-id)
+    <form name="sendin" action="$(link-login-only)" method="post" style="display:none">
+        <input type="hidden" name="username" />
+        <input type="hidden" name="password" />
+        <input type="hidden" name="dst" value="$(link-orig)" />
+        <input type="hidden" name="popup" value="true" />
+    </form>
+
+    <script src="/md5.js"></script>
+    <script>
+        function doLogin() {
+            document.sendin.username.value = document.login.username.value;
+            document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+            document.sendin.submit();
+            return false;
+        }
+
+    </script>
+    $(endif)
+
+
+	<div class="login">
+		<div class="login-title">
+			<img src="logo.png" alt="">
+			<h3>Wifi Hotspot</h3>
+		</div>
+
+		$(if error)
+		<div class="label2" style="color: #ff6000;"><br>$(error)</div>
+		$(endif)
+
+		<form method="post" action="$(link-login-only)" class="login-form"  $(if chap-id) onSubmit="return doLogin()" $(endif)>
+			<div class="label">Username:</div>
+			<div class="box">
+				<input type="text" name="username" placeholder="Username">
+			</div>
+			<div class="label">password/Voucher Token:</div>
+			<div class="box">
+				<input type="password" name="password" placeholder="Password/Voucher">
+			</div>
+			<input type="hidden" name="dst" value="$(link-orig)">
+			<input type="submit" value="Login">
+		</form>
+
+		<div class="purchase-area">
+			<h3>Buy Login Voucher:</h3>
+			<!--YOUR HOTSPOT BILLING PORTAL LINK GOES HERE. REPLACE THE PLACEHOLDER {{link}} below-->
+			<a href="http://localhost/globalpathbilling/wifi_portal.php"><div class="btn">Buy Now</div></a>
+			<div class="logo-area">
+				<img src="mtn.svg" alt="MTN">
+				<img src="airtel.png" alt="Airtel">
+			</div>
+			<div class="label2">We accept both MTN and Airtel Mobile Money</div>
+		</div>
+		<div class="label2"> Globalpath Network </div>
+		
+	</div>
+	
+</body>
+</html>
